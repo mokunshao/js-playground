@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 插入排序
+    let x = [522, 97, 665, 89, 121]
+    function insert(array) {
+      const handle = []
+      handle.push(array[0])
+      for (let i = 1; i < array.length; i++) {
+        let A = array[i]
+        for (let j = handle.length - 1; j >= 0; j--) {
+          let B = handle[j]
+          if (A > B) {
+            handle.splice(j + 1, 0, A)
+            break
+          }
+          if (j === 0) {
+            handle.unshift(A)
+          }
+        }
+      }
+      return handle
+    }
+    x = insert(x)
+    console.log(x)
+  </script>
+</body>
+
+</html>
