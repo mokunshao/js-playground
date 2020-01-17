@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 快速排序
+    let x = [522, 97, 665, 333, 89, 121]
+    function quick(array) {
+      if (array.length <= 1) {
+        return array
+      }
+      let middleIndex = Math.floor(array.length / 2)
+      let middleValue = array.splice(middleIndex, 1)[0]
+      let leftArray = []
+      let rightArray = []
+      for (let i = 0; i < array.length; i++) {
+        const item = array[i];
+        item < middleValue ? leftArray.push(item) : rightArray.push(item)
+      }
+      return quick(leftArray).concat(middleValue, quick(rightArray))
+    }
+    x = quick(x)
+    console.log(x)
+  </script>
+</body>
+
+</html>
