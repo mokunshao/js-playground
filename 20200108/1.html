@@ -16,6 +16,8 @@
     }
 
     function findIndexByValue(value, obj) {
+      // const index = Object.entries(obj).filter(([k, v]) => value === v).map(([k, v]) => k)[0]
+      // return index
       for (const key in obj) {
         if (obj[key] === value) {
           return key
