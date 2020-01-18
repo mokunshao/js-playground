@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function findMaxInArray(array) {
+      const max = Math.max.apply(Array, array)
+      return max
+    }
+
+    function findIndexByValue(value, obj) {
+      for (const key in obj) {
+        if (obj[key] === value) {
+          return key
+        }
+      }
+    }
+
+    function findMostWord(str) {
+      const dist = {}
+      for (let i = 0; i < str.length; i++) {
+        const item = str[i];
+        if (!dist[item]) {
+          dist[item] = 0
+        }
+        dist[item] += 1
+      }
+      const maxTimes = findMaxInArray(Object.values(dist))
+      const word = findIndexByValue(maxTimes, dist)
+      return { maxTimes, word }
+    }
+    const result = findMostWord('good news')
+    console.log(result)
+  </script>
+</body>
+
+</html>
