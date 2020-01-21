@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 单例模式
+    const Alert = (function () {
+      let instance = null;
+      return function () {
+        if (instance) { return instance; }
+        if (!(this instanceof Alert)) {
+          return new Alert()
+        }
+        this.name = 123;
+        instance = this;
+      }
+    })();
+    const a1 = new Alert();
+    const a2 = new Alert();
+    const a3 = Alert();
+    console.log(a1 === a2);
+    console.log(a1 === a3);
+  </script>
+</body>
+
+</html>
