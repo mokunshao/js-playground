@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <span>姓名：</span>
+    <span id="a"></span>
+  </div>
+  <input type="text" id="b">
+
+  <script>
+    let obj = {};
+
+    let newObj = {
+      ...obj
+    };
+
+    Object.defineProperty(obj, 'name', {
+      get() {
+        return newObj.name;
+      },
+      set(val) {
+        newObj.name = val;
+        observe();
+      }
+    });
+
+    function observe() {
+      a.innerHTML = newObj.name;
+    }
+
+    b.oninput = function () {
+      obj.name = this.value;
+    };
+  </script>
+</body>
+
+</html>
