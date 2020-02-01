@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="ul"></ul>
+  <script>
+    // 前端渲染十万条数据
+    // 一次性渲染所有
+
+    const total = 100000;
+    const once = 2000;
+    const index = 0;
+
+    const ul = document.getElementById('ul');
+
+    function insert(total2, index2) {
+      if (total2 <= 0) { return }
+      setTimeout(() => {
+        for (let i = 0; i < once; i++) {
+          const li = document.createElement('li');
+          li.innerHTML = index2 + i + 1;
+          ul.appendChild(li);
+        }
+        insert(total2 - once, index2 + once)
+      })
+    }
+
+    insert(total, index)
+
+
+  </script>
+</body>
+
+</html>
