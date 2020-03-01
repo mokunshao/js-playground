@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const check = function (v) {
+      const result = Number(v);
+      const result2 = isNaN(result) ? 0 : result;
+      return result2;
+    };
+
+    const add = function (v) {
+      const v2 = check(v);
+      const result = this + v2;
+      return result;
+    };
+
+    const minus = function (v) {
+      const v2 = check(v);
+      const result = this - v2;
+      return result;
+    };
+
+    Number.prototype.check = check;
+    Number.prototype.add = add;
+    Number.prototype.minus = minus;
+
+    const result = (3).add(5).minus(2);
+    console.log(result);
+  </script>
+</body>
+
+</html>
