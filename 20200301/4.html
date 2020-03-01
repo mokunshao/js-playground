@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //大小写取反
+    const str = 'AbcD123';
+    const str2 = str.replace(/[a-zA-Z]/g, function (content) {
+      const l_result = content.toLowerCase();
+      const u_result = content.toUpperCase();
+      const result = content === l_result ? u_result : l_result;
+      return result;
+    });
+    console.log(str);
+    console.log(str2);
+  </script>
+</body>
+
+</html>
