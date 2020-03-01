@@ -15,8 +15,8 @@
       for (let i = 0; i < this.length; i++) {
         const item = this[i]
         const result = callback.call(thisArg, item, i)
+        if (result === false) { break; };
         const result2 = isNaN(result) ? item : result;
-        if (result2 === false) { break; };
         arr.push(result2);
       }
 
