@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const each = function (callback, thisArg) {
+      const arr = [];
+
+      for (let i = 0; i < this.length; i++) {
+        const item = this[i]
+        const result = callback.call(thisArg, item, i)
+        const result2 = isNaN(result) ? item : result;
+        if (result2 === false) { break; };
+        arr.push(result2);
+      }
+
+      return arr;
+    };
+
+    Array.prototype.each = each;
+
+    const obj = {
+      name: 'obj'
+    };
+
+    const result = [11, 22, 33, 'AAA', 44, 55, NaN, 66].each(function (item, index) {
+      if (isNaN(item)) {
+        return false;
+      }
+      return item * 2;
+    }, obj);
+
+    console.log(result)
+
+    console.log('------分割线--------')
+
+    const result2 = [11, 22, 33, 'AAA', 44, 55, NaN, 66].each(function (item, index) {
+      return item * 2;
+    }, obj);
+
+    console.log(result2)
+  </script>
+</body>
+
+</html>
