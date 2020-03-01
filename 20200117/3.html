@@ -11,23 +11,24 @@
 <body>
   <script>
     // 快速排序
-    let x = [522, 97, 665, 333, 89, 121]
+    const source = [522, 97, 665, 333, 89, 121];
     function quick(array) {
       if (array.length <= 1) {
-        return array
+        return array;
       }
-      let middleIndex = Math.floor(array.length / 2)
-      let middleValue = array.splice(middleIndex, 1)[0]
-      let leftArray = []
-      let rightArray = []
-      for (let i = 0; i < array.length; i++) {
-        const item = array[i];
+      const array2 = JSON.parse(JSON.stringify(array));
+      const middleIndex = Math.floor(array.length / 2);
+      const middleValue = array2.splice(middleIndex, 1)[0];
+      const leftArray = [];
+      const rightArray = [];
+      array2.forEach(function (item) {
         item < middleValue ? leftArray.push(item) : rightArray.push(item)
-      }
+      });
       return quick(leftArray).concat(middleValue, quick(rightArray))
-    }
-    x = quick(x)
-    console.log(x)
+    };
+    const result = quick(source);
+    console.log('source: ', source)
+    console.log('result: ', result);
   </script>
 </body>
 
