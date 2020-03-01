@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const each = function (array, callback) {
+      for (let i = 0; i < array.length; i++) {
+        const item = array[i];
+        const result = callback.call(array, item, i);
+        if (result === false) {
+          break;
+        }
+      }
+    };
+
+    const callback = function (item, index) {
+      if (index === 2) {
+        return false
+      }
+      console.log(item, index);
+    };
+
+    const callback2 = function (item, index) {
+      console.log(item, index);
+    };
+
+    each([11, 22, 33, 55, 66], callback);
+
+    console.log('---------');
+
+    each([11, 22, 33, 55, 66], callback2);
+  </script>
+</body>
+
+</html>
