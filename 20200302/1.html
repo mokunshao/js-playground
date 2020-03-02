@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 字符串匹配算法
+    const myIndexOf = function (str) {
+      const str_len = str.length;
+      const this_len = this.length;
+      const delta_len = this_len - str_len;
+      for (let i = 0; i <= delta_len; i++) {
+        if (this.slice(i, i + str_len) === str) {
+          return i;
+        }
+      }
+      return -1;
+    };
+
+    String.prototype.myIndexOf = myIndexOf;
+
+    const a = 'helloworld';
+    const b = 'low';
+
+    const index = a.myIndexOf(b);
+
+    console.log(index);
+  </script>
+</body>
+
+</html>
