@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 字符串匹配算法
+    const myIndexOf = function (str) {
+      const reg = new RegExp(str);
+      const res = reg.exec(this);
+      if (res !== null) {
+        return res.index;
+      }
+      return -1;
+    };
+
+    String.prototype.myIndexOf = myIndexOf;
+
+    const a = 'helloworld';
+    const b = 'low';
+
+    const index = a.myIndexOf(b);
+
+    console.log(index);
+  </script>
+</body>
+
+</html>
