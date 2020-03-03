@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 正则题
+    const reg = /(?=_)\w+/
+    let str = 'wew'
+
+    const test = function () {
+      console.log(reg.test(str))
+    }
+
+    test();
+
+    str = 'wew_';
+
+    test();
+  </script>
+</body>
+
+</html>
