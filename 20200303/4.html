@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="aa" title="ok">aa</div>
+  <div class="baa">aa</div>
+  <div class="aa bb">aa bb</div>
+  <div class="bb aa">bb aa</div>
+  <div class="bb cc">bb cc</div>
+  <div class="cc aa" title="ok">cc aa</div>
+  <script>
+    // 实现一个 $attr(key,value)
+    const $attr = function (property, value) {
+      const all = document.getElementsByTagName('*');
+
+      const arr = [];
+
+      Array.prototype.forEach.call(all, function (el, i) {
+        const v = el.getAttribute(property);
+
+        if (v === null) {
+          return;
+        };
+
+        if (property === 'class') {
+          const reg = new RegExp(`\\b${value}\\b`);
+          if (reg.test(v)) {
+            arr.push(el);
+          }
+          return;
+        }
+
+        if (v === value) {
+          arr.push(all[i]);
+        }
+      });
+
+      return arr;
+    };
+
+    const arr = $attr('class', 'aa');
+
+    console.log(arr);
+
+    const arr2 = $attr('title', 'ok');
+
+    console.log(arr2);
+  </script>
+</body>
+
+</html>
