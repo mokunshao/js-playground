@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 正则题
+    // 在英文中文组合的字符串中，用正则给英文单词前后添加空格
+    const fn = function (str) {
+      const reg = /\b[a-zA-Z]+\b/ig;
+      let str2 = str.replace(reg, function (c) {
+        return ` ${c} `;
+      });
+      str2 = str2.trim();
+      return str2;
+    };
+    const str = '我eat饭，不喜欢drink水';
+    const str2 = fn(str);
+    console.log(str2);
+  </script>
+</body>
+
+</html>
